@@ -52,7 +52,7 @@ export async function getRequest<TResponse>(
 ): Promise<TResponse> {
   try {
     const queryString = queryParams ? `?${toQueryString(queryParams)}` : "";
-    const fullUrl = `/api/api/v1/${url}${queryString}`;
+    const fullUrl = `/api/v1/${url}${queryString}`;
 
     const res = await fetchWithTimeout(fullUrl, {
       method: "GET",
@@ -82,7 +82,7 @@ export async function postRequest<TBody, TResponse>(
 ) {
   try {
     const queryString = queryStr ? `?${toQueryString(queryStr)}` : "";
-    const fullUrl = `/api/api/v1/${url}${queryString}`;
+    const fullUrl = `/api/v1/${url}${queryString}`;
 
     // const res = await fetchWithTimeout(fullUrl, {
     //   method: "POST",
@@ -124,7 +124,7 @@ export async function patchRequest<TBody, TResponse>(
 ) {
   try {
     const queryString = queryStr ? `?${toQueryString(queryStr)}` : "";
-    const fullUrl = `/api/api/v1/${url}${queryString}`;
+    const fullUrl = `/api/v1/${url}${queryString}`;
 
     const res = await fetchWithTimeout(fullUrl, {
       method: "PATCH",
@@ -152,7 +152,7 @@ export async function putRequest<TBody, TResponse>(
 ) {
   try {
     const queryString = queryStr ? `?${toQueryString(queryStr)}` : "";
-    const fullUrl = `/api/api/v1/${url}${queryString}`;
+    const fullUrl = `/api/v1/${url}${queryString}`;
 
     const res = await fetchWithTimeout(fullUrl, {
       method: "PUT",
@@ -175,7 +175,7 @@ export async function putRequest<TBody, TResponse>(
 
 export async function deleteRequest<TResponse>(url: string) {
   try {
-    const res = await fetchWithTimeout(`/api/api/v1/${url}`, {
+    const res = await fetchWithTimeout(`/api/v1/${url}`, {
       method: "DELETE",
       credentials: "include",
     });
