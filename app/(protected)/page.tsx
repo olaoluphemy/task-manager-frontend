@@ -49,6 +49,13 @@ export default function App() {
   const { mutate, isPending } = useMutation({
     mutationFn: createTask,
     onSuccess: () => {
+      setForm({
+        title: "",
+        description: "",
+        dueDate: "",
+        priority: "low",
+        status: "todo",
+      });
       queryClient.invalidateQueries({
         queryKey: ["tasks"],
       });
