@@ -7,9 +7,11 @@ const nextConfig: NextConfig = {
       {
         source: "/api/:path*",
         destination: "https://task-manager-api-s94k.onrender.com/:path*",
+        // destination: "http://localhost:3000/:path*",
       },
     ];
   },
 };
+// destination: "https://task-manager-api-s94k.onrender.com/:path*",
 
 export default nextConfig;
