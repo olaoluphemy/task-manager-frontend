@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: "/api/:path*",
+        source: "/:path*",
         destination: "https://task-manager-api-s94k.onrender.com/:path*",
         // destination: "http://localhost:3000/:path*",
       },
