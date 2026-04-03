@@ -243,7 +243,16 @@ export default function App() {
               type="date"
               name="dueDate"
               value={form.dueDate}
-              onChange={handleChange}
+              onChange={(e) => {
+                const today = Number(
+                  new Date(new Date(Date.now()).setHours(0, 0, 0, 0)).getTime(),
+                );
+
+                const prevDay = Number(new Date(e.target.value).getTime());
+
+                if (prevDay < today) return;
+                handleChange(e);
+              }}
               className="p-2 border rounded-lg"
             />
 
