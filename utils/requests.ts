@@ -1,4 +1,4 @@
-import { REQUEST_TIMEOUT_MILLISECONDS } from "./constants";
+import { BASE_URL, REQUEST_TIMEOUT_MILLISECONDS } from "./constants";
 
 interface APIResponse {
   success: boolean;
@@ -52,7 +52,7 @@ export async function getRequest<TResponse>(
 ): Promise<TResponse> {
   try {
     const queryString = queryParams ? `?${toQueryString(queryParams)}` : "";
-    const fullUrl = `http://localhost:3000/api/v1/${url}${queryString}`;
+    const fullUrl = `${BASE_URL}${url}${queryString}`;
 
     const res = await fetchWithTimeout(fullUrl, {
       method: "GET",
@@ -82,7 +82,7 @@ export async function postRequest<TBody, TResponse>(
 ) {
   try {
     const queryString = queryStr ? `?${toQueryString(queryStr)}` : "";
-    const fullUrl = `http://localhost:3000/api/v1/${url}${queryString}`;
+    const fullUrl = `${BASE_URL}${url}${queryString}`;
 
     // const res = await fetchWithTimeout(fullUrl, {
     //   method: "POST",
@@ -124,7 +124,7 @@ export async function patchRequest<TBody, TResponse>(
 ) {
   try {
     const queryString = queryStr ? `?${toQueryString(queryStr)}` : "";
-    const fullUrl = `http://localhost:3000/api/v1/${url}${queryString}`;
+    const fullUrl = `${BASE_URL}${url}${queryString}`;
 
     const res = await fetchWithTimeout(fullUrl, {
       method: "PATCH",
@@ -152,7 +152,7 @@ export async function putRequest<TBody, TResponse>(
 ) {
   try {
     const queryString = queryStr ? `?${toQueryString(queryStr)}` : "";
-    const fullUrl = `http://localhost:3000/api/v1/${url}${queryString}`;
+    const fullUrl = `${BASE_URL}${url}${queryString}`;
 
     const res = await fetchWithTimeout(fullUrl, {
       method: "PUT",
@@ -175,7 +175,7 @@ export async function putRequest<TBody, TResponse>(
 
 export async function deleteRequest<TResponse>(url: string) {
   try {
-    const res = await fetchWithTimeout(`http://localhost:3000/api/v1/${url}`, {
+    const res = await fetchWithTimeout(`${BASE_URL}${url}`, {
       method: "DELETE",
       credentials: "include",
     });
